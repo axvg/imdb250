@@ -1,4 +1,4 @@
-# crud250
+# imdb250
 ```sh
  python -m venv venv
  .\venv\Scripts\activate

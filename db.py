@@ -1,10 +1,7 @@
-"""Example queries for movies sample database."""
-
 import sqlite3
 
 
 def get_conn():
-    # Connect to the SQLite database
     return sqlite3.connect("movies.db")
 
 
