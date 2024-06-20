@@ -24,7 +24,7 @@
             <p><b>Director:</b> {{ movie.director }}</p>
             <!-- <p><b>Writers:</b> {{ movie.writers }}</p> -->
             <p><b>Estrellas:</b> {{ movie.stars }}</p>
-            <hr>
+            <p><b>URL:</b> <a href="{{ movie.url }}" style="color: blue;">{{ movie.url }}</a></p>            <hr>
         {% endfor %}
     {% endif %}
 </body>
