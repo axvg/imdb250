@@ -9,23 +9,27 @@
         <p>
             Busca el nombre de una pelicula:
             <input type="text" name="name" value="{{ name }}">
-            <input type="submit">
+            <input type="submit" value="Buscar por Película">
+        </p>
+        <p>
+            O busca por nombre de actor:
+            <input type="text" name="actor" value="{{ actor }}">
+            <input type="submit" value="Buscar por Actor">
         </p>
     </form>
     {% if data %}
         {% for movie in data %}
-            <!-- <p><b>Movie ID:</b> {{ movie.id }}</p> -->
             <p><b>Nombre:</b> {{ movie.name }}</p>
             <p><b>Calificación:</b> {{ movie.rating }}</p>
-            <!-- <p><b>Release Date:</b> {{ movie.date }}</p> -->
-            <!-- <p><b>Duration:</b> {{ movie.duration }}</p> -->
             <p><b>Categoría:</b> {{ movie.category }}</p>
             <p><b>Descripción:</b> {{ movie.description }}</p>
             <p><b>Director:</b> {{ movie.director }}</p>
-            <!-- <p><b>Writers:</b> {{ movie.writers }}</p> -->
             <p><b>Estrellas:</b> {{ movie.stars }}</p>
-            <p><b>URL:</b> <a href="{{ movie.url }}" style="color: blue;">{{ movie.url }}</a></p>            <hr>
+            <p><b>URL:</b> <a href="{{ movie.url }}" style="color: blue;">{{ movie.url }}</a></p>
+            <hr>
         {% endfor %}
+    {% else %}
+        <p>No se encontraron resultados.</p>
     {% endif %}
 </body>
 </html>

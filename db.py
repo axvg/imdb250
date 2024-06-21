@@ -43,6 +43,24 @@ class Movie:
             movies = [cls(row[0]) for row in rows]
             return movies
 
+    @classmethod
+    def find_by_actor(cls, actor_name):
+        """Queries the database for movies featuring the actor_name."""
+        with get_conn() as conn:
+            cur = conn.cursor()
+            # Since 'stars' is a string field, use LIKE to search for the actor_name within it
+            # This approach assumes actor names are stored in a format like '["Tom Hanks", "Robin Wright"]'
+            # Adjust the query if the format differs
+            cur.execute("""
+                SELECT * FROM movie
+                WHERE stars LIKE ?
+            """, ('%' + actor_name + '%',))
+            rows = cur.fetchall()
+            if not rows:
+                return None
+            movies = [cls(row[0]) for row in rows]
+            return movies
+
     def __str__(self):
         return f"{self.id}: {self.name} directed by {self.director}"
 
